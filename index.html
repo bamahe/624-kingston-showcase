@@ -348,6 +348,54 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   text-align: center;
 }
 .customize-note strong { color: #003DA5; }
+
+/* ===== WHY THIS MATTERS ===== */
+.why-section {
+  background: #fff;
+  padding: 60px 24px;
+  border-bottom: 1px solid #eee;
+}
+.why-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.why-inner h2 {
+  font-size: clamp(26px, 4vw, 36px);
+  color: #003DA5;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.why-inner p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.why-inner p:last-child { margin-bottom: 0; }
+.why-inner strong { color: #2a2d34; }
+.why-inner .why-highlight {
+  background: #f0f7ff;
+  border-left: 4px solid #003DA5;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin: 24px 0;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.7;
+}
+.bbs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8f8fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+.bbs-badge strong { color: #2a2d34; }
 .total-bar {
   background: #003DA5;
   color: #fff;
@@ -456,7 +504,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   <div class="hero-badge">Exclusive Seller Presentation</div>
   <p class="address">624 Kingston Court, Apollo Beach, FL</p>
   <h1>See the <span>$100,000</span> Difference</h1>
-  <p class="subtitle">How a small strategic investment protects and maximizes your equity. Drag each slider to watch the value grow.</p>
+  <p class="subtitle">Your home doesn't need fixing &mdash; it needs finishing. A few smart cosmetic touches can unlock serious equity. Drag each slider to see the difference.</p>
   <div class="hero-branding">
     <span class="name">Barrett Henry</span>
     <span>|</span>
@@ -479,17 +527,33 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   <!-- Sliders injected by JS -->
 </div>
 
+<!-- ===== WHY THIS MATTERS ===== -->
+<section class="why-section">
+  <div class="why-inner">
+    <h2>Why This Matters</h2>
+    <p>There are no real issues with this home. <strong>Someone can move right in.</strong> They can put their furniture down, hang their clothes in the closet, and call it home on day one. Bigger updates like countertops can happen whenever they want, on their own timeline &mdash; I'll have three granite quotes ready so future buyers can choose their own style.</p>
+    <p>But here's the thing: <strong>if we don't handle the subtle cosmetic details &mdash; the flooring, the fresh paint &mdash; we risk eliminating an entire group of buyers</strong> who walk in and immediately feel like it's too much work. In reality, it's not much at all. But that first impression matters, and buyers decide with their gut.</p>
+    <div class="why-highlight">
+      These small investments remove friction. They let buyers picture themselves living here instead of mentally adding up a renovation list. That's the difference between a lowball offer and a full-price one.
+    </div>
+    <p><strong>None of this is required.</strong> This is simply where I see money being left on the table. I put this together so you can see the numbers, discuss it together, and decide what makes sense for you. Even doing just the flooring alone would make a noticeable difference.</p>
+    <div class="bbs-badge">
+      <strong>Best Bay Services</strong> &mdash; Licensed &amp; insured, great reviews, great customer service. I make sure my clients always get taken care of, and you won't find better labor pricing.
+    </div>
+  </div>
+</section>
+
 <!-- ===== THE NUMBERS ===== -->
 <section class="numbers-section">
   <div class="numbers-inner">
     <div class="section-header" style="padding-top:0;">
       <h2>The Investment Breakdown</h2>
-      <p>Strategic, cost-effective improvements that deliver outsized returns.</p>
+      <p>Toggle items on or off to customize the plan and see how it affects your total.</p>
       <div class="red-bar"></div>
     </div>
 
     <div class="customize-note">
-      <strong>This is your plan &mdash; customize it.</strong> We recommend the full package for maximum impact, but every improvement is optional. Toggle items on or off to see how it affects your investment and return. Even if you only want the flooring done, we can make that happen.
+      <strong>This is your plan &mdash; customize it.</strong> We recommend the full package for maximum impact, but every improvement is optional. Even if you just want the flooring done, we can make that happen. This is for you to discuss and decide what feels right.
     </div>
 
     <div class="numbers-grid" id="numbers-grid">
