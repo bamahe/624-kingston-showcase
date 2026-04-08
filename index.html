@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>624 Kingston Court - See the $100,000 Difference</title>
+<meta property="og:title" content="624 Kingston Court - See the $100,000 Difference">
+<meta property="og:description" content="Slide to see how strategic improvements maximize your home sale price.">
+<meta property="og:type" content="website">
+<meta name="description" content="Slide to see how strategic improvements maximize your home sale price. 624 Kingston Court, Apollo Beach, FL.">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #2a2d34;
+  background: #f8f8f8;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #003DA5 0%, #001f5c 60%, #0a0a1a 100%);
+  color: #fff;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: #CC0000;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  color: rgba(255,255,255,0.85);
+}
+.hero h1 {
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.hero h1 span { color: #CC0000; }
+.hero .address {
+  font-size: clamp(16px, 3vw, 22px);
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.hero .subtitle {
+  font-size: clamp(15px, 2.5vw, 19px);
+  color: rgba(255,255,255,0.6);
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+.hero-branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+.hero-branding .name {
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+}
+
+/* ===== SECTION HEADERS ===== */
+.section-header {
+  text-align: center;
+  padding: 60px 24px 32px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.section-header h2 {
+  font-size: clamp(26px, 4vw, 40px);
+  color: #003DA5;
+  margin-bottom: 12px;
+}
+.section-header p {
+  font-size: 17px;
+  color: #666;
+}
+.section-header .red-bar {
+  width: 50px;
+  height: 3px;
+  background: #CC0000;
+  border-radius: 2px;
+  margin: 16px auto 0;
+}
+
+/* ===== MONEY SLIDER ===== */
+.slider-section {
+  max-width: 1000px;
+  margin: 0 auto 48px;
+  padding: 0 16px;
+}
+.slider-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #003DA5;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+.slider-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+.slider-container img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.slider-container .after-img {
+  clip-path: inset(0 50% 0 0);
+}
+.slider-container .before-img {
+  z-index: 1;
+}
+.slider-container .after-img {
+  z-index: 2;
+}
+
+/* Slider handle bar */
+.slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #fff;
+  z-index: 10;
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.15);
+}
+.slider-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.slider-handle .arrows {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  font-size: 16px;
+  color: #003DA5;
+  font-weight: 700;
+  letter-spacing: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Price labels */
+.price-tag {
+  position: absolute;
+  bottom: 16px;
+  z-index: 8;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: clamp(14px, 3vw, 20px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.price-before {
+  left: 16px;
+  background: rgba(0,0,0,0.65);
+  color: #f0f0f0;
+  backdrop-filter: blur(4px);
+}
+.price-after {
+  right: 16px;
+  background: rgba(0,100,0,0.7);
+  color: #b5ffb5;
+  backdrop-filter: blur(4px);
+}
+
+/* Dynamic price overlay */
+.price-dynamic {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: color 0.1s;
+}
+
+/* Drag hint on first slider */
+.drag-hint {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+  animation: hintPulse 2s ease-in-out infinite;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.drag-hint .hand {
+  display: inline-block;
+  animation: handSlide 1.5s ease-in-out infinite;
+  font-size: 20px;
+}
+@keyframes hintPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+@keyframes handSlide {
+  0%, 100% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+}
+
+/* ===== NUMBERS SECTION ===== */
+.numbers-section {
+  background: #fff;
+  padding: 60px 24px;
+}
+.numbers-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.numbers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 36px;
+}
+@media (max-width: 640px) {
+  .numbers-grid { grid-template-columns: 1fr; }
+}
+.numbers-card {
+  background: #f8f8fa;
+  border-radius: 12px;
+  padding: 28px;
+  border: 1px solid #e8e8ec;
+}
+.numbers-card h3 {
+  font-size: 18px;
+  color: #003DA5;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.numbers-card .card-note {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 16px;
+}
+.line-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+}
+.line-item:last-child { border-bottom: none; }
+.line-item .label { color: #555; }
+.line-item .amount { font-weight: 600; color: #2a2d34; }
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0 0;
+  margin-top: 8px;
+  border-top: 2px solid #003DA5;
+  font-size: 17px;
+  font-weight: 700;
+  color: #003DA5;
+}
+.total-bar {
+  background: #003DA5;
+  color: #fff;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.total-bar .total-label {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.total-bar .total-amount {
+  font-size: 28px;
+  font-weight: 800;
+}
+.total-note {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+}
+
+/* ===== ROI SECTION ===== */
+.roi-section {
+  background: linear-gradient(135deg, #003DA5 0%, #001f5c 100%);
+  color: #fff;
+  padding: 60px 24px;
+  text-align: center;
+}
+.roi-section h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 40px;
+}
+.roi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto 32px;
+}
+.roi-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 24px 16px;
+}
+.roi-card .roi-value {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.roi-card .roi-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.6);
+}
+.roi-highlight .roi-value { color: #4dff4d; }
+.roi-tagline {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: rgba(255,255,255,0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: #0a0a1a;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.site-footer .footer-name {
+  font-weight: 700;
+  color: #fff;
+  font-size: 16px;
+}
+.site-footer .footer-tagline {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-badge">Exclusive Seller Presentation</div>
+  <p class="address">624 Kingston Court, Apollo Beach, FL</p>
+  <h1>See the <span>$100,000</span> Difference</h1>
+  <p class="subtitle">How a small strategic investment protects and maximizes your equity. Drag each slider to watch the value grow.</p>
+  <div class="hero-branding">
+    <span class="name">Barrett Henry</span>
+    <span>|</span>
+    <span>Broker Associate | REALTOR&reg;</span>
+    <span>|</span>
+    <span>RE/MAX Collective</span>
+    <span>|</span>
+    <span>The NOW Team</span>
+  </div>
+</section>
+
+<!-- ===== SLIDER SECTIONS ===== -->
+<div class="section-header">
+  <h2>Slide to See the Transformation</h2>
+  <p>Every inch you drag represents tens of thousands of dollars in equity. See what strategic improvements look like.</p>
+  <div class="red-bar"></div>
+</div>
+
+<div id="sliders">
+  <!-- Sliders injected by JS -->
+</div>
+
+<!-- ===== THE NUMBERS ===== -->
+<section class="numbers-section">
+  <div class="numbers-inner">
+    <div class="section-header" style="padding-top:0;">
+      <h2>The Investment Breakdown</h2>
+      <p>Strategic, cost-effective improvements that deliver outsized returns.</p>
+      <div class="red-bar"></div>
+    </div>
+
+    <div class="numbers-grid">
+      <!-- Materials -->
+      <div class="numbers-card">
+        <h3>Materials</h3>
+        <p class="card-note">Purchased upfront</p>
+        <div class="line-item"><span class="label">Interior painting (2,000 sq ft, 2 coats)</span><span class="amount">$350</span></div>
+        <div class="line-item"><span class="label">Upstairs painting (~500 sq ft)</span><span class="amount">$125</span></div>
+        <div class="line-item"><span class="label">Concrete paint &mdash; pool deck, balcony, porch (10 gal)</span><span class="amount">$350</span></div>
+        <div class="line-item"><span class="label">Seawall paint &mdash; 100ft x 4ft, white (5 gal)</span><span class="amount">$200</span></div>
+        <div class="line-item"><span class="label">Laminate flooring &mdash; 930 sq ft + underlayment + transitions</span><span class="amount">$2,290</span></div>
+        <div class="subtotal"><span>Materials Subtotal</span><span>$3,315</span></div>
+      </div>
+
+      <!-- Labor -->
+      <div class="numbers-card">
+        <h3>Labor</h3>
+        <p class="card-note">Paid from proceeds at closing</p>
+        <div class="line-item"><span class="label">Interior painting</span><span class="amount">$2,000</span></div>
+        <div class="line-item"><span class="label">Upstairs painting</span><span class="amount">$500</span></div>
+        <div class="line-item"><span class="label">Concrete painting (pool/balcony/porch)</span><span class="amount">$1,200</span></div>
+        <div class="line-item"><span class="label">Seawall painting</span><span class="amount">$800</span></div>
+        <div class="line-item"><span class="label">Laminate flooring installation (930 sq ft)</span><span class="amount">$2,000</span></div>
+        <div class="subtotal"><span>Labor Subtotal</span><span>$6,500</span></div>
+        <p style="margin-top:12px;font-size:13px;color:#888;">Labor provided by Best Bay Services</p>
+      </div>
+    </div>
+
+    <div class="total-bar">
+      <span class="total-label">Total Project Investment</span>
+      <span class="total-amount">$9,815</span>
+    </div>
+    <p class="total-note">Labor costs paid from sale proceeds at closing. Zero upfront cost to seller beyond materials.</p>
+  </div>
+</section>
+
+<!-- ===== ROI SECTION ===== -->
+<section class="roi-section">
+  <h2>The Return on Investment</h2>
+  <div class="roi-grid">
+    <div class="roi-card">
+      <div class="roi-value">$9,815</div>
+      <div class="roi-label">Total Investment</div>
+    </div>
+    <div class="roi-card">
+      <div class="roi-value">$825K</div>
+      <div class="roi-label">Current As-Is Value</div>
+    </div>
+    <div class="roi-card">
+      <div class="roi-value">$925K</div>
+      <div class="roi-label">Target List Price</div>
+    </div>
+    <div class="roi-card roi-highlight">
+      <div class="roi-value">$100K</div>
+      <div class="roi-label">Additional Equity Captured</div>
+    </div>
+    <div class="roi-card roi-highlight">
+      <div class="roi-value">1,019%</div>
+      <div class="roi-label">Return on Investment</div>
+    </div>
+  </div>
+  <p class="roi-tagline">"Every dollar invested here keeps thousands more in your pocket at closing."</p>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <p class="footer-name">Barrett Henry</p>
+  <p>Broker Associate | REALTOR&reg; | RE/MAX Collective | The NOW Team</p>
+  <p>(813) 733-7907 | barrett@nowtb.com</p>
+  <span class="footer-tagline">Move With Confidence</span>
+</footer>
+
+<script>
+/* ===== SLIDER DATA — matched before/after pairs ===== */
+const ROOMS = [
+  { label: 'Front Exterior',    before: 'images/Front Before.jpeg',     after: 'images/Front After.png' },
+  { label: 'Foyer',             before: 'images/Foyer before.jpeg',     after: 'images/Cozy home entrance with staircase and plants.png' },
+  { label: 'Living Room',       before: 'images/LR before.jpeg',        after: 'images/LR After.png' },
+  { label: 'Dining Room',       before: 'images/DR Before.jpeg',        after: 'images/DR After.png' },
+  { label: 'Owners Suite',      before: 'images/OS before.jpeg',        after: 'images/OS After.png' },
+  { label: 'Staircase',         before: 'images/Stairs Before.jpeg',    after: 'images/Stairs After.png' },
+  { label: 'Pool Deck',         before: 'images/Pool Before.jpeg',      after: 'images/Pool After.png' },
+  { label: 'Balcony',           before: 'images/Balcony Before.jpeg',   after: 'images/Balcony After.png' },
+  { label: 'Porch',             before: 'images/porch before.jpeg',     after: 'images/porch after.png' },
+  { label: 'Seawall',           before: 'images/Sea Wall before.jpeg',  after: 'images/Sea Wall After.png' },
+];
+
+const LOW = 825000;
+const HIGH = 925000;
+
+/* Format dollar amount */
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+
+/* Interpolate color from neutral gray/red to green based on 0-1 */
+function priceColor(t) {
+  // rgb(180,180,180) -> rgb(50,200,50)
+  const r = Math.round(180 + (50 - 180) * t);
+  const g = Math.round(180 + (200 - 180) * t);
+  const b = Math.round(180 + (50 - 180) * t);
+  return `rgb(${r},${g},${b})`;
+}
+
+/* Build slider HTML */
+const container = document.getElementById('sliders');
+ROOMS.forEach((room, i) => {
+  const section = document.createElement('div');
+  section.className = 'slider-section';
+  section.innerHTML = `
+    <div class="slider-label">${room.label}</div>
+    <div class="slider-container" data-index="${i}">
+      <img class="before-img" src="${room.before}" alt="${room.label} Before" loading="${i < 2 ? 'eager' : 'lazy'}">
+      <img class="after-img" src="${room.after}" alt="${room.label} After" loading="${i < 2 ? 'eager' : 'lazy'}">
+      <div class="price-tag price-before">$825,000</div>
+      <div class="price-tag price-after">$925,000</div>
+      <div class="price-dynamic" style="color:${priceColor(0.5)}">${fmt((LOW+HIGH)/2)}</div>
+      <div class="slider-handle"><span class="arrows">&lsaquo; &rsaquo;</span></div>
+      ${i === 0 ? '<div class="drag-hint"><span class="hand">&#9995;</span> Drag to see the transformation</div>' : ''}
+    </div>
+  `;
+  container.appendChild(section);
+});
+
+/* ===== SLIDER INTERACTION ===== */
+document.querySelectorAll('.slider-container').forEach(slider => {
+  const afterImg = slider.querySelector('.after-img');
+  const handle = slider.querySelector('.slider-handle');
+  const priceDynamic = slider.querySelector('.price-dynamic');
+  const hint = slider.querySelector('.drag-hint');
+  let dragging = false;
+
+  function setPosition(x) {
+    const rect = slider.getBoundingClientRect();
+    let pct = (x - rect.left) / rect.width;
+    pct = Math.max(0, Math.min(1, pct));
+
+    // After image clips from left: reveal from left as pct increases
+    afterImg.style.clipPath = `inset(0 ${(1 - pct) * 100}% 0 0)`;
+    handle.style.left = (pct * 100) + '%';
+
+    // Update dynamic price
+    const price = LOW + (HIGH - LOW) * pct;
+    priceDynamic.textContent = fmt(price);
+    priceDynamic.style.color = priceColor(pct);
+
+    // Hide hint on first interaction
+    if (hint) hint.style.display = 'none';
+  }
+
+  function onStart(e) {
+    e.preventDefault();
+    dragging = true;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    setPosition(x);
+  }
+  function onMove(e) {
+    if (!dragging) return;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    setPosition(x);
+  }
+  function onEnd() { dragging = false; }
+
+  slider.addEventListener('mousedown', onStart);
+  slider.addEventListener('touchstart', onStart, { passive: false });
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('touchmove', onMove, { passive: true });
+  window.addEventListener('mouseup', onEnd);
+  window.addEventListener('touchend', onEnd);
+});
+</script>
+
+</body>
+</html>
