@@ -513,11 +513,11 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
       <div class="roi-label">Total Investment</div>
     </div>
     <div class="roi-card">
-      <div class="roi-value">$825K</div>
+      <div class="roi-value">$850K</div>
       <div class="roi-label">Current As-Is Value</div>
     </div>
     <div class="roi-card">
-      <div class="roi-value">$925K</div>
+      <div class="roi-value">$950K</div>
       <div class="roi-label">Target List Price</div>
     </div>
     <div class="roi-card roi-highlight">
@@ -555,8 +555,8 @@ const ROOMS = [
   { label: 'Seawall',           before: 'images/Sea Wall before.jpeg',  after: 'images/Sea Wall After.png' },
 ];
 
-const LOW = 825000;
-const HIGH = 925000;
+const LOW = 850000;
+const HIGH = 950000;
 
 /* Format dollar amount */
 function fmt(n) {
@@ -582,8 +582,8 @@ ROOMS.forEach((room, i) => {
     <div class="slider-container" data-index="${i}">
       <img class="before-img" src="${room.before}" alt="${room.label} Before" loading="${i < 2 ? 'eager' : 'lazy'}">
       <img class="after-img" src="${room.after}" alt="${room.label} After" loading="${i < 2 ? 'eager' : 'lazy'}">
-      <div class="price-tag price-before">$825,000</div>
-      <div class="price-tag price-after">$925,000</div>
+      <div class="price-tag price-before">$850,000</div>
+      <div class="price-tag price-after">$950,000</div>
       <div class="price-dynamic" style="color:${priceColor(0.5)}">${fmt((LOW+HIGH)/2)}</div>
       <div class="slider-handle"><span class="arrows">&lsaquo; &rsaquo;</span></div>
       ${i === 0 ? '<div class="drag-hint"><span class="hand">&#9995;</span> Drag to see the transformation</div>' : ''}
