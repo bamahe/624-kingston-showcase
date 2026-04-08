@@ -306,14 +306,26 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 }
 .line-item {
   display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
   font-size: 15px;
   border-bottom: 1px solid #eee;
+  transition: opacity 0.2s;
 }
 .line-item:last-child { border-bottom: none; }
-.line-item .label { color: #555; }
-.line-item .amount { font-weight: 600; color: #2a2d34; }
+.line-item .label { color: #555; flex: 1; }
+.line-item .label a { color: #003DA5; text-decoration: underline; font-size: 13px; }
+.line-item .amount { font-weight: 600; color: #2a2d34; white-space: nowrap; }
+.line-item.disabled { opacity: 0.35; text-decoration: line-through; }
+.line-item input[type="checkbox"] {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: #003DA5;
+  cursor: pointer;
+  flex-shrink: 0;
+}
 .subtotal {
   display: flex;
   justify-content: space-between;
@@ -324,6 +336,18 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   font-weight: 700;
   color: #003DA5;
 }
+.customize-note {
+  background: #eef3fb;
+  border: 1px solid #ccdcf0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  text-align: center;
+}
+.customize-note strong { color: #003DA5; }
 .total-bar {
   background: #003DA5;
   color: #fff;
@@ -464,36 +488,17 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
       <div class="red-bar"></div>
     </div>
 
-    <div class="numbers-grid">
-      <!-- Materials -->
-      <div class="numbers-card">
-        <h3>Materials</h3>
-        <p class="card-note">Purchased upfront</p>
-        <div class="line-item"><span class="label">Interior painting (2,000 sq ft, 2 coats)</span><span class="amount">$350</span></div>
-        <div class="line-item"><span class="label">Upstairs painting (~500 sq ft)</span><span class="amount">$125</span></div>
-        <div class="line-item"><span class="label">Concrete paint &mdash; pool deck, balcony, porch (10 gal)</span><span class="amount">$350</span></div>
-        <div class="line-item"><span class="label">Seawall paint &mdash; 100ft x 4ft, white (5 gal)</span><span class="amount">$200</span></div>
-        <div class="line-item"><span class="label">Laminate flooring &mdash; 930 sq ft + underlayment + transitions</span><span class="amount">$2,290</span></div>
-        <div class="subtotal"><span>Materials Subtotal</span><span>$3,315</span></div>
-      </div>
+    <div class="customize-note">
+      <strong>This is your plan &mdash; customize it.</strong> We recommend the full package for maximum impact, but every improvement is optional. Toggle items on or off to see how it affects your investment and return. Even if you only want the flooring done, we can make that happen.
+    </div>
 
-      <!-- Labor -->
-      <div class="numbers-card">
-        <h3>Labor</h3>
-        <p class="card-note">Paid from proceeds at closing</p>
-        <div class="line-item"><span class="label">Interior painting</span><span class="amount">$2,000</span></div>
-        <div class="line-item"><span class="label">Upstairs painting</span><span class="amount">$500</span></div>
-        <div class="line-item"><span class="label">Concrete painting (pool/balcony/porch)</span><span class="amount">$1,200</span></div>
-        <div class="line-item"><span class="label">Seawall painting</span><span class="amount">$800</span></div>
-        <div class="line-item"><span class="label">Laminate flooring installation (930 sq ft)</span><span class="amount">$2,000</span></div>
-        <div class="subtotal"><span>Labor Subtotal</span><span>$6,500</span></div>
-        <p style="margin-top:12px;font-size:13px;color:#888;">Labor provided by Best Bay Services</p>
-      </div>
+    <div class="numbers-grid" id="numbers-grid">
+      <!-- Built by JS -->
     </div>
 
     <div class="total-bar">
       <span class="total-label">Total Project Investment</span>
-      <span class="total-amount">$9,815</span>
+      <span class="total-amount" id="total-amount">$0</span>
     </div>
     <p class="total-note">Labor costs paid from sale proceeds at closing. Zero upfront cost to seller beyond materials.</p>
   </div>
@@ -504,7 +509,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   <h2>The Return on Investment</h2>
   <div class="roi-grid">
     <div class="roi-card">
-      <div class="roi-value">$9,815</div>
+      <div class="roi-value" id="roi-investment">$0</div>
       <div class="roi-label">Total Investment</div>
     </div>
     <div class="roi-card">
@@ -520,7 +525,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
       <div class="roi-label">Additional Equity Captured</div>
     </div>
     <div class="roi-card roi-highlight">
-      <div class="roi-value">1,019%</div>
+      <div class="roi-value" id="roi-pct">0%</div>
       <div class="roi-label">Return on Investment</div>
     </div>
   </div>
@@ -633,6 +638,112 @@ document.querySelectorAll('.slider-container').forEach(slider => {
   window.addEventListener('mouseup', onEnd);
   window.addEventListener('touchend', onEnd);
 });
+
+/* ===== INTERACTIVE INVESTMENT BREAKDOWN ===== */
+const ITEMS = [
+  {
+    id: 'painting',
+    label: 'Interior painting (~2,500 sq ft, crisp white, 2 coats)',
+    materialCost: 500,
+    laborLabel: 'Interior painting',
+    laborCost: 2000,
+    enabled: true,
+  },
+  {
+    id: 'concrete',
+    label: 'Concrete paint — pool deck, balcony, porch (10 gal)',
+    materialCost: 400,
+    laborLabel: 'Concrete painting (pool/balcony/porch)',
+    laborCost: 1200,
+    enabled: true,
+  },
+  {
+    id: 'seawall',
+    label: 'Seawall paint — 100ft x 4ft, white (5 gal)',
+    materialCost: 200,
+    laborLabel: 'Seawall painting',
+    laborCost: 800,
+    enabled: true,
+  },
+  {
+    id: 'flooring',
+    label: 'Laminate flooring — 930 sq ft + underlayment + transitions',
+    materialCost: 2290,
+    laborLabel: 'Laminate flooring installation (930 sq ft)',
+    laborCost: 2000,
+    enabled: true,
+    link: 'https://www.lowes.com/pd/Style-Selections-Foxmere-Oak-12-mil-x-7-in-W-x-48-in-L-Waterproof-Luxury-Vinyl-Plank-Flooring-23-21-sq-ft-Carton/5016711571',
+    linkText: 'View flooring example at Lowe\'s',
+  },
+];
+
+function buildNumbers() {
+  const grid = document.getElementById('numbers-grid');
+
+  // Materials card
+  let matHTML = '<div class="numbers-card"><h3>Materials</h3><p class="card-note">Purchased upfront</p>';
+  ITEMS.forEach(item => {
+    const linkHTML = item.link ? `<br><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.linkText}</a>` : '';
+    matHTML += `
+      <div class="line-item" id="mat-${item.id}">
+        <input type="checkbox" ${item.enabled ? 'checked' : ''} data-id="${item.id}" class="item-toggle">
+        <span class="label">${item.label}${linkHTML}</span>
+        <span class="amount">$${item.materialCost.toLocaleString()}</span>
+      </div>`;
+  });
+  matHTML += '<div class="subtotal"><span>Materials Subtotal</span><span id="mat-subtotal">$0</span></div></div>';
+
+  // Labor card
+  let labHTML = '<div class="numbers-card"><h3>Labor</h3><p class="card-note">Paid from proceeds at closing</p>';
+  ITEMS.forEach(item => {
+    labHTML += `
+      <div class="line-item" id="lab-${item.id}">
+        <input type="checkbox" ${item.enabled ? 'checked' : ''} data-id="${item.id}" class="item-toggle">
+        <span class="label">${item.laborLabel}</span>
+        <span class="amount">$${item.laborCost.toLocaleString()}</span>
+      </div>`;
+  });
+  labHTML += '<div class="subtotal"><span>Labor Subtotal</span><span id="lab-subtotal">$0</span></div>';
+  labHTML += '<p style="margin-top:12px;font-size:13px;color:#888;">Labor provided by Best Bay Services</p></div>';
+
+  grid.innerHTML = matHTML + labHTML;
+
+  // Wire up checkboxes — toggling one syncs both (material + labor)
+  grid.querySelectorAll('.item-toggle').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const id = this.dataset.id;
+      const item = ITEMS.find(i => i.id === id);
+      item.enabled = this.checked;
+      // Sync all checkboxes for this item
+      grid.querySelectorAll(`[data-id="${id}"]`).forEach(el => { el.checked = item.enabled; });
+      // Toggle line-item styling
+      document.getElementById('mat-' + id).classList.toggle('disabled', !item.enabled);
+      document.getElementById('lab-' + id).classList.toggle('disabled', !item.enabled);
+      updateTotals();
+    });
+  });
+
+  updateTotals();
+}
+
+function updateTotals() {
+  let matTotal = 0, labTotal = 0;
+  ITEMS.forEach(item => {
+    if (item.enabled) {
+      matTotal += item.materialCost;
+      labTotal += item.laborCost;
+    }
+  });
+  const grand = matTotal + labTotal;
+  document.getElementById('mat-subtotal').textContent = '$' + matTotal.toLocaleString();
+  document.getElementById('lab-subtotal').textContent = '$' + labTotal.toLocaleString();
+  document.getElementById('total-amount').textContent = '$' + grand.toLocaleString();
+  document.getElementById('roi-investment').textContent = '$' + grand.toLocaleString();
+  const roiPct = grand > 0 ? Math.round((100000 / grand) * 100) : 0;
+  document.getElementById('roi-pct').textContent = roiPct.toLocaleString() + '%';
+}
+
+buildNumbers();
 </script>
 
 </body>
