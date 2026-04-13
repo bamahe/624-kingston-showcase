@@ -15,7 +15,8 @@ body {
   background: #fff;
   line-height: 1.6;
 }
-img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
+a { color: #CC0000; }
+a:hover { color: #a30000; }
 
 :root {
   --accent: #CC0000;
@@ -27,7 +28,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
   --bg-subtle: #fafafa;
 }
 
-/* ===== HERO ===== */
 .hero {
   padding: 56px 24px 40px;
   text-align: center;
@@ -65,7 +65,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
   margin: 0 auto;
 }
 
-/* ===== NAV PILLS ===== */
 .nav-pills {
   display: flex;
   flex-wrap: wrap;
@@ -101,7 +100,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
   border-color: var(--accent);
 }
 
-/* ===== SCOPE CARDS ===== */
 .scope-section {
   max-width: 900px;
   margin: 0 auto;
@@ -143,11 +141,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
 .scope-card-body {
   padding: 24px;
 }
-.scope-card-body > p {
-  font-size: 15px;
-  color: var(--text-mid);
-  margin-bottom: 16px;
-}
 .scope-details {
   font-size: 14px;
   color: #666;
@@ -159,27 +152,8 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
 }
 .scope-details strong { color: var(--text); }
 .scope-details ul { margin: 8px 0 0 18px; padding: 0; }
-.scope-details li { margin-bottom: 4px; }
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin-top: 16px;
-}
-.photo-grid figure { margin: 0; }
-.photo-grid figcaption {
-  font-size: 12px;
-  color: var(--text-light);
-  margin-top: 6px;
-  text-align: center;
-}
-.photo-grid img {
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  width: 100%;
-  border: 1px solid var(--border);
-}
+.scope-details li { margin-bottom: 6px; }
+.scope-details a { font-size: 12px; }
 
 .cost-badge {
   display: inline-flex;
@@ -191,7 +165,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
   font-weight: 700;
   padding: 8px 16px;
   border-radius: 8px;
-  margin-top: 8px;
 }
 .cost-badge .split {
   font-size: 12px;
@@ -199,7 +172,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
   color: var(--text-mid);
 }
 
-/* ===== TOTALS ===== */
 .totals-section {
   max-width: 900px;
   margin: 40px auto;
@@ -269,13 +241,7 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
   background: var(--accent);
   color: #fff;
 }
-.cta-btn.primary:hover { background: #a30000; }
-.cta-btn.secondary {
-  background: #fff;
-  color: var(--text-mid);
-  border: 1px solid var(--border);
-}
-.cta-btn.secondary:hover { background: var(--bg-subtle); }
+.cta-btn.primary:hover { background: #a30000; color: #fff; }
 
 .site-footer {
   text-align: center;
@@ -304,7 +270,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
 @media (max-width: 600px) {
   .scope-card-body { padding: 16px; }
   .scope-card-header { padding: 14px 16px; }
-  .photo-grid { grid-template-columns: 1fr; }
   .totals-card { padding: 24px 16px; }
   .totals-item .value { font-size: 20px; }
 }
@@ -316,7 +281,7 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
   <div class="hero-badge">Seller Improvement Plan</div>
   <h1>624 Kingston Court</h1>
   <div class="address">Apollo Beach, FL 33572 &mdash; Canal-Front Waterfront</div>
-  <p class="summary">Room-by-room plan showing current conditions, what we're fixing, and why it matters for your sale price.</p>
+  <p class="summary">Room-by-room plan showing what we're fixing and why it matters for your sale price.</p>
 </header>
 
 <nav class="nav-pills">
@@ -336,34 +301,25 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
   <div class="scope-card" id="painting">
     <div class="scope-card-header">
       <div class="scope-number">1</div>
-      <h2>Interior Painting &mdash; ~1,200 sq ft</h2>
+      <h2>Interior Painting</h2>
     </div>
     <div class="scope-card-body">
-      <p>Builder beige throughout the home dates the interior. Fresh paint in a modern neutral (SW ProMar 200, 2 coats + primer) transforms every room buyers walk through.</p>
       <div class="scope-details">
-        <strong>Areas included:</strong>
+        <strong>Scope:</strong>
         <ul>
           <li>Foyer &mdash; upstairs and down (scaffolding for vaulted ceilings)</li>
           <li>Owners suite bedroom</li>
           <li>Owners suite bath &mdash; touch-up</li>
           <li>Guest bathroom + ceiling</li>
-          <li>Kitchen &amp; pantry</li>
-          <li>Under-stove area</li>
+          <li>Pantry</li>
+          <li>Above-stove area in kitchen</li>
+          <li>Long wall with two sliders (kitchen/living room)</li>
+          <li>One wall in living room</li>
           <li>Porch off owners suite</li>
-          <li>Laundry window sill</li>
           <li>Door trim touch-ups throughout</li>
+          <li>Remove select AC vents and respray white</li>
           <li>Attic access</li>
         </ul>
-      </div>
-      <div class="photo-grid">
-        <figure>
-          <img src="images/Foyer before.jpeg" alt="Foyer current condition">
-          <figcaption>Foyer &mdash; dated paint, needs refresh</figcaption>
-        </figure>
-        <figure>
-          <img src="images/OS before.jpeg" alt="Owners Suite current condition">
-          <figcaption>Owners Suite &mdash; builder beige walls</figcaption>
-        </figure>
       </div>
       <div class="cost-badge">
         $3,575 <span class="split">($575 materials + $3,000 labor)</span>
@@ -375,33 +331,23 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
   <div class="scope-card" id="flooring">
     <div class="scope-card-header">
       <div class="scope-number">2</div>
-      <h2>Flooring &mdash; Rockwood Oak Laminate, 1,389 sq ft</h2>
+      <h2>Flooring &mdash; Rockwood Oak Laminate, 58 boxes</h2>
     </div>
     <div class="scope-card-body">
-      <p>All carpet is being replaced with Rockwood Oak laminate. This is the single biggest visual upgrade &mdash; buyers notice flooring immediately.</p>
       <div class="scope-details">
         <strong>Scope:</strong>
         <ul>
-          <li>Remove all existing carpet (1,389 sq ft)</li>
-          <li>Install Rockwood Oak laminate ($0.99/sq ft)</li>
+          <li>Remove all existing carpet</li>
+          <li>58 boxes Rockwood Oak laminate &mdash; 24.17 sq ft/box @ $23.92/box<br>
+            <a href="https://www.homedepot.com/p/TrafficMaster-Rockwood-Oak-7-mm-T-x-7-64-in-W-Laminate-Wood-Flooring-24-17-sqft-case-63922/326629193" target="_blank" rel="noopener">View on Home Depot &rarr;</a></li>
           <li>6 mil poly underlayment (6 rolls, $168)</li>
-          <li>White quarter round trim (50 pcs @ $4)</li>
-          <li>Zama transitions (10 pcs @ $18)</li>
+          <li>White quarter round trim (50 pcs @ $4 = $200)</li>
+          <li>Zama transitions (10 pcs @ $18 = $180)</li>
           <li>Flooring removal ($500)</li>
         </ul>
       </div>
-      <div class="photo-grid">
-        <figure>
-          <img src="images/Stairs Before.jpeg" alt="Staircase carpet">
-          <figcaption>Staircase &mdash; carpet being removed</figcaption>
-        </figure>
-        <figure>
-          <img src="images/LR before.jpeg" alt="Living room carpet">
-          <figcaption>Living room &mdash; carpet replacement area</figcaption>
-        </figure>
-      </div>
       <div class="cost-badge">
-        $5,423 <span class="split">($1,923 materials + $3,500 labor)</span>
+        $4,873 <span class="split">($1,923 materials + $2,950 labor)</span>
       </div>
     </div>
   </div>
@@ -413,7 +359,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
       <h2>Pool Deck &amp; Concrete Paint</h2>
     </div>
     <div class="scope-card-body">
-      <p>The pool deck is faded and stained. Painting around the pool area gives the backyard &mdash; your biggest selling feature &mdash; a clean, finished look.</p>
       <div class="scope-details">
         <strong>Scope:</strong>
         <ul>
@@ -421,21 +366,12 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
           <li>Side strip outside lanai: 3&times;33 = ~99 sq ft</li>
           <li>Sidewalk section</li>
           <li>Light prep + 2 coats</li>
+          <li>Pressure wash back porch and pool areas</li>
           <li>Back porch: <strong>clean only</strong> (no painting)</li>
         </ul>
       </div>
-      <div class="photo-grid">
-        <figure>
-          <img src="images/Pool Before.jpeg" alt="Pool deck current">
-          <figcaption>Pool deck &mdash; faded surface</figcaption>
-        </figure>
-        <figure>
-          <img src="photos/iCloud Photos/IMG_5989.JPEG" alt="Back porch">
-          <figcaption>Back porch &mdash; clean only, no paint</figcaption>
-        </figure>
-      </div>
       <div class="cost-badge">
-        $1,425 <span class="split">($225 materials + $1,200 labor)</span>
+        $825 <span class="split">($225 materials + $600 labor)</span>
       </div>
     </div>
   </div>
@@ -447,7 +383,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
       <h2>Seawall &amp; Plaster Repair</h2>
     </div>
     <div class="scope-card-body">
-      <p>Vertical cracks in the seawall plaster are visible and will raise flags during buyer inspections. Patching and replastering eliminates a major objection point at minimal cost.</p>
       <div class="scope-details">
         <strong>Scope:</strong>
         <ul>
@@ -455,20 +390,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
           <li>Replaster affected sections</li>
           <li>Seal and finish to match existing</li>
         </ul>
-      </div>
-      <div class="photo-grid">
-        <figure>
-          <img src="photos/iCloud Photos/IMG_5991.JPEG" alt="Seawall crack close-up">
-          <figcaption>Vertical crack &mdash; top to bottom</figcaption>
-        </figure>
-        <figure>
-          <img src="photos/iCloud Photos/IMG_5992.JPEG" alt="Seawall crack wider">
-          <figcaption>Crumbling at base, brick cap visible</figcaption>
-        </figure>
-        <figure>
-          <img src="photos/iCloud Photos/IMG_5993.JPEG" alt="Seawall crack detail">
-          <figcaption>Crack detail with scaling</figcaption>
-        </figure>
       </div>
       <div class="cost-badge">
         $750 <span class="split">($150 materials + $600 labor)</span>
@@ -483,20 +404,23 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
       <h2>Lighting &amp; Electrical</h2>
     </div>
     <div class="scope-card-body">
-      <p>Mismatched and burnt-out bulbs make the home feel neglected. All 22 recessed lights get matching bulbs, and select fixtures are being replaced to modernize key areas.</p>
       <div class="scope-details">
         <strong>Scope:</strong>
         <ul>
-          <li>22 recessed bulbs &mdash; standardize to matching color temp (sizes TBD on-site)</li>
-          <li>New fixtures: dining room, staircase, front door</li>
-          <li>2 Juliet balcony fixtures</li>
-          <li>2 deck fan/light combos</li>
-          <li>Bulb budget: ~$150</li>
+          <li>22 recessed bulbs &mdash; standardize to matching color temp (~$150)</li>
+          <li>2&times; Breezary Vladimir 42" black flush ceiling fan w/ LED &amp; remote &mdash; upper back deck @ $65 ea = $130<br>
+            <a href="https://www.homedepot.com/pep/Breezary-Vladimir-42-in-Covered-Outdoor-Standard-Black-Flush-Ceiling-Fan-with-LED-Light-Black-Blade-and-Remote-Included-33071-BW/331759098" target="_blank" rel="noopener">View on Home Depot &rarr;</a></li>
+          <li>1&times; TRUE FINE 20" rattan tiered drum pendant chandelier &mdash; dining room @ $109.99<br>
+            <a href="https://www.homedepot.com/p/TRUE-FINE-20-in-4-Light-Rattan-Tiered-Drum-Pendant-Chandelier-Light-with-Black-Canopy-TD90062C/325468767" target="_blank" rel="noopener">View on Home Depot &rarr;</a></li>
+          <li>1&times; LNC Modern 14.8" black outdoor wall lantern &mdash; front porch @ $79.97<br>
+            <a href="https://www.homedepot.com/p/LNC-Modern-14-8-in-Large-1-Light-Black-Outdoor-Wall-Lantern-Sconce-with-Clear-Glass-Shade-for-Garage-Front-Porch-Wall-Light-MJZF2EHD1156W68/326160518" target="_blank" rel="noopener">View on Home Depot &rarr;</a></li>
+          <li>1&times; LNC 9.3" black outdoor wall lantern 2-pack &mdash; Juliet balconies @ $77.97<br>
+            <a href="https://www.homedepot.com/p/LNC-9-3-in-Black-Outdoor-Wall-Lantern-Sconce-Industrial-Exterior-Light-Fixture-for-Porch-Garage-or-Entryway-2-Pack-LQJM7ZZ2701K9C/337245386" target="_blank" rel="noopener">View on Home Depot &rarr;</a></li>
+          <li>Remove front spotlight &amp; repurpose to back sidewalk toward boat dock ($0)</li>
         </ul>
-        <p style="margin-top:10px; font-style:italic; color:var(--text-light);">Fixture selections pending &mdash; will be updated with specific models and pricing.</p>
       </div>
       <div class="cost-badge">
-        $950 <span class="split">($450 materials + $500 labor)</span>
+        $1,098 <span class="split">($548 materials + $550 labor)</span>
       </div>
     </div>
   </div>
@@ -508,20 +432,15 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
       <h2>Landscaping &amp; Plants</h2>
     </div>
     <div class="scope-card-body">
-      <p>Curb appeal is the first impression. Trees trimmed back significantly (not removed due to root systems), plus fresh plantings to clean up the front and sides.</p>
       <div class="scope-details">
         <strong>Scope:</strong>
         <ul>
           <li>Trim existing trees way back (no removal)</li>
+          <li>8 boxes Pure Beauty Farms 1 Qt Liriope 4-packs &mdash; flower bed along pool area @ $279.84<br>
+            <a href="https://www.homedepot.com/p/Pure-Beauty-Farms-1-Qt-Liriope-Plant-4-Pack-DC1QLIR4PK/326828218" target="_blank" rel="noopener">View on Home Depot &rarr;</a></li>
           <li>Fresh mulch and plantings</li>
           <li>General cleanup of beds and edging</li>
         </ul>
-      </div>
-      <div class="photo-grid">
-        <figure>
-          <img src="photos/iCloud Photos/IMG_5981.JPEG" alt="Canal view from backyard">
-          <figcaption>Canal view &mdash; the backyard sells this home</figcaption>
-        </figure>
       </div>
       <div class="cost-badge">
         $700 <span class="split">($450 materials + $250 labor)</span>
@@ -536,25 +455,17 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
       <h2>Misc Repairs</h2>
     </div>
     <div class="scope-card-body">
-      <p>Small items that individually cost little but collectively make the home feel cared for and move-in ready.</p>
       <div class="scope-details">
         <strong>Scope:</strong>
         <ul>
-          <li>Remove satellite dish from exterior</li>
-          <li>Remove large art piece in foyer &mdash; replace with mirror</li>
           <li>Pull up carpet in front foyer (not glued) and clean</li>
+          <li>Replacement blind for laundry room window (~$20)</li>
           <li>Remove blinds from front foyer windows</li>
           <li>Touch-up and patch as needed</li>
         </ul>
       </div>
-      <div class="photo-grid">
-        <figure>
-          <img src="photos/iCloud Photos/IMG_5980.JPEG" alt="Satellite dish">
-          <figcaption>Satellite dish &mdash; remove from exterior</figcaption>
-        </figure>
-      </div>
       <div class="cost-badge">
-        $150 <span class="split">($150 materials + $0 labor)</span>
+        $120 <span class="split">($20 materials + $100 labor)</span>
       </div>
     </div>
   </div>
@@ -568,22 +479,22 @@ img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
     <div class="totals-grid">
       <div class="totals-item">
         <div class="label">Total Materials</div>
-        <div class="value">$3,923</div>
+        <div class="value">$3,891</div>
       </div>
       <div class="totals-item">
         <div class="label">Total Labor</div>
-        <div class="value">$9,050</div>
+        <div class="value">$8,050</div>
       </div>
       <div class="totals-item">
         <div class="label">Total Investment</div>
-        <div class="value accent">$12,973</div>
+        <div class="value accent">$11,941</div>
       </div>
       <div class="totals-item">
         <div class="label">Estimated Value Gain</div>
         <div class="value green">$100,000</div>
       </div>
     </div>
-    <p class="totals-note">Projected ROI: ~770% &mdash; $12,973 in, ~$100,000 additional equity out</p>
+    <p class="totals-note">Projected ROI: ~838% &mdash; $11,941 in, ~$100,000 additional equity out</p>
     <div class="cta-row">
       <a href="index.html" class="cta-btn primary">View Before &amp; After</a>
     </div>
